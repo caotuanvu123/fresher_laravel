@@ -2,27 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
-    private $productModel;
-
-    public function __construct()
-    {
-        // laravel
-        $this->productModel = Product::class;
-        //php
-        $this->productModel = new Product();
-    }
-
     public function index()
     {
-        $title = 'file index cua product';
+        // get product
+        // select * from product
 
-//        $this->productModel->all();
+        // get tat ca du lieu trong table
+        // ham nay nam trong eloquent
+        // select * from product;
+        $products = Product::all();
 
-        return view('products.master', ['title' => $title]);
+//        return view('product.master', ['products' => $products]);
+        return view('products.master', compact('products'));
     }
 }
