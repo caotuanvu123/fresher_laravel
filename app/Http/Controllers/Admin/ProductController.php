@@ -16,9 +16,8 @@ class ProductController extends Controller
         // get tat ca du lieu trong table
         // ham nay nam trong eloquent
         // select * from product;
-        $products = Product::all();
+        $products = Product::with(['category'])->get();
 
-//        return view('product.master', ['products' => $products]);
         return view('admin.products.master', compact('products'));
     }
 

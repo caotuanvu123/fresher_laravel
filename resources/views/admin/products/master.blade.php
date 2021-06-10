@@ -24,15 +24,20 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Price</th>
+                <th>Categories</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
+{{--            select *--}}
+{{--            26 cau query/--}}
+{{--2--}}
                 @forelse ($products as $product)
                     <tr>
                         <td>{{ $product->id }}</td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->price }}</td>
+                        <td>{{ $product->category->name }}</td>
                         <td><a href="{{ route('admin.product.detail', ['id' => $product->id]) }}">Detail</a>
                             | <a href="{{ route('admin.product.delete', ['id' => $product->id]) }}">Delete</a></td>
                     </tr>
